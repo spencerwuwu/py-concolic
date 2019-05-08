@@ -13,8 +13,10 @@ def trace_lines(frame, event, arg):
     line_no = frame.f_lineno
     filename = co.co_filename
     #print('  %s line %s' % (func_name, line_no))
-    if line_no < len(lines):
-        print('  %s ' % lines[line_no])
+    if line_no < len(lines) and "def " in lines[line_no]:
+        func_name = str.strip(lines[line_no])
+        print(func_name + "\t" + filename)
+        #print('%s' % lines[line_no])
 
 def trace_calls(frame, event, arg):
     if event != 'call':
@@ -42,8 +44,7 @@ def trace_calls(frame, event, arg):
     """
     return
 
-sys.path.append("target")
-from romanToInt import romanToInt
+import urllib3
 
 """
 with open("target/romanToInt.py", "r") as source:
@@ -53,5 +54,6 @@ lines = [None] + code.splitlines()  # None at [0] so we can index lines from 1
 
 TRACE_INTO = ['romanToInt']
 sys.settrace(trace_calls)
-sys.settrace(trace_calls)
-print(romanToInt("IV"))
+http = urllib3.PoolManager()
+r = http.request('GET', 'http://httpbin.org/robots.txt')
+print(r.data)

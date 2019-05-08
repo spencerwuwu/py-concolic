@@ -20,7 +20,8 @@ def romanToInt(s:str) -> int:
     s = s + "E"
     sum = 0
 
-    for i in range (0,L):
+    for i in range (0
+            ,L):
         if num[s[i]] >= num[s[i+1]]:
             sum = sum + num[s[i]]
         else:
