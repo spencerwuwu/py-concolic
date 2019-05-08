@@ -3,6 +3,8 @@ import sys
 import ast
 
 
+lines = []
+
 def trace_lines(frame, event, arg):
     if event != 'line':
         return
@@ -11,7 +13,8 @@ def trace_lines(frame, event, arg):
     line_no = frame.f_lineno
     filename = co.co_filename
     #print('  %s line %s' % (func_name, line_no))
-    print('  %s ' % lines[line_no])
+    if line_no < len(lines):
+        print('  %s ' % lines[line_no])
 
 def trace_calls(frame, event, arg):
     if event != 'call':
@@ -23,19 +26,32 @@ def trace_calls(frame, event, arg):
         return
     line_no = frame.f_lineno
     filename = co.co_filename
-    print('Call to %s on line %s of %s' % (func_name, line_no, filename))
+    #print('Call to %s on line %s of %s' % (func_name, line_no, filename))
+    if ".py" in filename:
+        with open(filename, "r") as source:
+            code = source.read()
+        global lines
+        lines = [None] + code.splitlines()  # None at [0] so we can index lines from 1
+        return trace_lines
+
+
+    """
     if func_name in TRACE_INTO:
         # Trace into this function
         return trace_lines
+    """
     return
 
 sys.path.append("target")
 from romanToInt import romanToInt
 
+"""
 with open("target/romanToInt.py", "r") as source:
     code = source.read()
 lines = [None] + code.splitlines()  # None at [0] so we can index lines from 1
+"""
 
 TRACE_INTO = ['romanToInt']
+sys.settrace(trace_calls)
 sys.settrace(trace_calls)
 print(romanToInt("IV"))
