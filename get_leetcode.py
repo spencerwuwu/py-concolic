@@ -81,9 +81,14 @@ def gen_pyex_code(function, params):
     code = []
     code.append("from symbolic.args import symbolic, concrete")
 
+    keep = 0
+
     for param in params:
         if param.p_type == "str":
+            keep = 1
             code.append("@symbolic(" + param.name + "=" + '\"abcdefg\")')
+    if keep == 0:
+        return None
 
     for line in function:
         code.append(line)
@@ -103,22 +108,31 @@ def get_gencode(code):
 
 
 def main(py):
-    print(py)
-    print("---")
-    with open(py, "r") as source:
+    read_py = "leetcode_python/" + py
+    with open(read_py, "r") as source:
         code = source.read()
     gencode = get_gencode(code)
-    if gencode is None:
-        print("Can't do")
-    else:
-        for line in gencode:
-            print(line)
-    print("=========")
+    target = get_function(code)[0].replace("def ", "").split("(")[0]
+
+    if gencode is not None:
+        print(py)
+        print(target)
+        print("---")
+        write_py = "pyex_leetcode/" + target + ".py"
+        with open(write_py, "w") as dest:
+            for line in gencode:
+                print(line)
+                dest.write(line + "\n")
+        print("=========")
+
 
 
 
 if __name__ == "__main__":
+    os.chdir(os.path.dirname(__file__))
     dirs = os.listdir("leetcode_python/")
+    os.system("rm -rf pyex_leetcode")
+    os.system("mkdir -p pyex_leetcode")
     for py in dirs:
         if ".py" in py:
-            main("leetcode_python/" + py)
+            main(py)
