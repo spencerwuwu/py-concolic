@@ -1,6 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(J="abcdefg")
-@symbolic(S="abcdefg")
+@symbolic(J="abcdefg", S="abcdefg")
 def numJewelsInStones( J, S):
     """
     :type J: str

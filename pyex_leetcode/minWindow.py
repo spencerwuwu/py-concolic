@@ -1,6 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(s="abcdefg")
-@symbolic(t="abcdefg")
+@symbolic(s="abcdefg", t="abcdefg")
 def minWindow( s, t):
     ls_s, ls_t = len(s), len(t)
     need_to_find = [0] * 256

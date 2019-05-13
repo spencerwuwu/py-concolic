@@ -1,6 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(secret="abcdefg")
-@symbolic(guess="abcdefg")
+@symbolic(secret="abcdefg", guess="abcdefg")
 def getHint( secret, guess):
     """
     :type secret: str

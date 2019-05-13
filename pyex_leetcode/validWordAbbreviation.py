@@ -1,6 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(word="abcdefg")
-@symbolic(abbr="abcdefg")
+@symbolic(word="abcdefg", abbr="abcdefg")
 def validWordAbbreviation( word, abbr):
     pos = curr = 0
     for i in range(len(abbr)):

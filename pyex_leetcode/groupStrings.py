@@ -1,6 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(in0="abcdefg")
-@symbolic(in1="abcdefg")
+@symbolic(in0="abcdefg", in1="abcdefg")
 def groupStrings( in0, in1):
     strings = [in0, in1]
     """

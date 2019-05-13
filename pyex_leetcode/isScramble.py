@@ -1,6 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(s1="abcdefg")
-@symbolic(s2="abcdefg")
+@symbolic(s1="abcdefg", s2="abcdefg")
 def isScramble( s1, s2, memo={}):
     if len(s1) != len(s2) or sorted(s1) != sorted(s2):
         return False

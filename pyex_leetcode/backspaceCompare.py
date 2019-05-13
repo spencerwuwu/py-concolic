@@ -1,6 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(S="abcdefg")
-@symbolic(T="abcdefg")
+@symbolic(S="abcdefg", T="abcdefg")
 def backspaceCompare( S, T):
     """
     :type S: str

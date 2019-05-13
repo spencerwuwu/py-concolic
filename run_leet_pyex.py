@@ -9,5 +9,6 @@ for py in dirs:
     if ".py" in py:
         q_dir = "queries/" + py.replace(".py", "")
         os.system("mkdir -p " + q_dir)
-        cmd = pyex + " -q " + q_dir + " -m 1000 pyex_leetcode/" + py
+        cmd = pyex + " -q " + q_dir + " -m 30 pyex_leetcode/" + py
         os.system(cmd)
+

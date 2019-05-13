@@ -1,7 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(s="abcdefg")
-@symbolic(in0="abcdefg")
-@symbolic(in1="abcdefg")
+@symbolic(s="abcdefg", in0="abcdefg", in1="abcdefg")
 def findSubstring( s, in0, in1):
     words = [in0, in1]
     """

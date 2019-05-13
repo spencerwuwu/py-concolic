@@ -1,7 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(s1="abcdefg")
-@symbolic(s2="abcdefg")
-@symbolic(s3="abcdefg")
+@symbolic(s1="abcdefg", s2="abcdefg", s3="abcdefg")
 def isInterleave( s1, s2, s3):
     """
     :type s1: str

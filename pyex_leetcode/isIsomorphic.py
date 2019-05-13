@@ -1,6 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(s="abcdefg")
-@symbolic(t="abcdefg")
+@symbolic(s="abcdefg", t="abcdefg")
 def isIsomorphic( s, t):
     if len(s) != len(t):
         return False

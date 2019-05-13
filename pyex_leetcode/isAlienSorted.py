@@ -1,7 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(order="abcdefg")
-@symbolic(in0="abcdefg")
-@symbolic(in1="abcdefg")
+@symbolic(order="abcdefg", in0="abcdefg", in1="abcdefg")
 def isAlienSorted( in0, in1, order):
     words = [in0, in1]
     """

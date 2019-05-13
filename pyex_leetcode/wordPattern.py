@@ -1,6 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(pattern="abcdefg")
-@symbolic(str="abcdefg")
+@symbolic(pattern="abcdefg", str="abcdefg")
 def wordPattern( pattern, str):
     """
     :type pattern: str

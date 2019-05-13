@@ -1,6 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(s="abcdefg")
-@symbolic(p="abcdefg")
+@symbolic(s="abcdefg", p="abcdefg")
 def isMatch( s, p):
     """
     :type s: str

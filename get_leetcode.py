@@ -83,10 +83,19 @@ def gen_pyex_code(function, params):
 
     keep = 0
 
+    symbolic_to_add = "@symbolic("
+    count = 0
     for param in params:
         if param.p_type == "str":
             keep = 1
-            code.append("@symbolic(" + param.name + "=" + '\"abcdefg\")')
+            if count == 0:
+                symbolic_to_add = symbolic_to_add + param.name + "=" + '\"abcdefg\"'
+                count += 1
+            else:
+                symbolic_to_add = symbolic_to_add + ", " +  param.name + "=" + '\"abcdefg\"'
+                count += 1
+    symbolic_to_add += ")"
+    code.append(symbolic_to_add)
     if keep == 0:
         return None
 
@@ -113,6 +122,9 @@ def main(py):
         code = source.read()
     gencode = get_gencode(code)
     target = get_function(code)[0].replace("def ", "").split("(")[0]
+
+    if "_init_" in target:
+        return 0
 
     if gencode is not None:
         print(py)

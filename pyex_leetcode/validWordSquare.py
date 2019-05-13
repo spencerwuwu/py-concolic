@@ -1,6 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(in0="abcdefg")
-@symbolic(in1="abcdefg")
+@symbolic(in0="abcdefg", in1="abcdefg")
 def validWordSquare( in0, in1):
     words = [in0, in1]
     """

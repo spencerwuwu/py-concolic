@@ -1,6 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(num1="abcdefg")
-@symbolic(num2="abcdefg")
+@symbolic(num1="abcdefg", num2="abcdefg")
 def addStrings( num1, num2):
     res = []
     pos1 = len(num1) - 1

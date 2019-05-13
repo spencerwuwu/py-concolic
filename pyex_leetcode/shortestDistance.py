@@ -1,8 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(word1="abcdefg")
-@symbolic(word2="abcdefg")
-@symbolic(in0="abcdefg")
-@symbolic(in1="abcdefg")
+@symbolic(word1="abcdefg", word2="abcdefg", in0="abcdefg", in1="abcdefg")
 def shortestDistance( in0, in1, word1, word2):
     words = [in0, in1]
     index1 = index2 = -1
