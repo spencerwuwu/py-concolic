@@ -1,5 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(s="abcdefg")
+@symbolic(s="a good   example")
 def reverseWords( s):
     s = s.strip(' ')
     array_s = []

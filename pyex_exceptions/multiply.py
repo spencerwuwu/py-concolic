@@ -1,5 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(num1="abcdefg", num2="abcdefg")
+@symbolic(num1="98", num2="9")
 def multiply( num1, num2):
     if num1 == '0' or num2 == '0':
         return '0'

@@ -1,5 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(s="abcdefg")
+@symbolic(s=")(((((()())()()))()(()))(")
 def longestValidParentheses( s):
     ls = len(s)
     stack = []

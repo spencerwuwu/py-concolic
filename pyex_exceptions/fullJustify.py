@@ -1,5 +1,5 @@
 from symbolic.args import symbolic, concrete
-@symbolic(in0="abcdefg", in1="abcdefg")
+@symbolic(in0="abcdefg", in1="hijklmno", maxWidth=3)
 def fullJustify( in0, in1, maxWidth):
     words = [in0, in1]
     """
